@@ -2,7 +2,7 @@
 
 function contador(){
     $archivo ='contador.txt';
-    $abrir=fopen($archivo, 'r+');
+    $abrir=fopen($archivo, 'w');
     $size=filesize($archivo);
     $leer=fread($abrir, $size);
     $contenido=$leer+1;
@@ -20,4 +20,4 @@ function contador(){
 
 echo contador();
 
-
+?>

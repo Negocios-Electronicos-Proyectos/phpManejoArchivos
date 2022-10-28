@@ -20,16 +20,26 @@
             </div>
         </div>
         <div class="container">
+            <form action="actualizar.php" method="post">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Ingrese los datos</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="txtInputArea" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        </div>
+        <div class="container">
             <?php
+            $textoActualizar = $_POST['txtInputArea'];
+            $handler = fopen("nuevo.txt", "w+");
+
             $archivo = 'nuevo.txt';
-            fopen($archivo, 'w+');
-            // $mensaje = "Se creó el archivo";
-            // header('location:../index.php');
-            echo "<p class='lead'>";
-            echo "Se creó el archivo";
-            echo "</p>";
+
+            fwrite($handler, $textoActualizar);
+
             ?>
-            <a class="btn btn-primary" href="../index.php">Regresar al menú</a>
+            <br>
+            <a class="btn btn-primary" href="../index.php" style="margin-top: 10px;">Regresar al menú</a>
         </div>
     </main>
     <footer>

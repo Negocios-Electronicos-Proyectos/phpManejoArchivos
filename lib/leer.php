@@ -17,19 +17,17 @@
                 <h1 class="display-4">CRUDCITO</h1>
                 <p class="lead">Tarea sobre Crear, Eliminar, Actualizar y Leer archivos en PHP.</p>
                 <hr class="my-4">
+                <p class="lead">Contenido del archivo:</p>
             </div>
         </div>
         <div class="container">
             <?php
-            $archivo = 'nuevo.txt';
-            fopen($archivo, 'w+');
-            // $mensaje = "Se creó el archivo";
-            // header('location:../index.php');
-            echo "<p class='lead'>";
-            echo "Se creó el archivo";
-            echo "</p>";
+            $handler = fopen("nuevo.txt", "r");
+            $leer = fread($handler, filesize("nuevo.txt"));
+            echo $leer;
             ?>
-            <a class="btn btn-primary" href="../index.php">Regresar al menú</a>
+            <br>
+            <a class="btn btn-primary" href="../index.php" style="margin-top: 10px;">Regresar al menú</a>
         </div>
     </main>
     <footer>
