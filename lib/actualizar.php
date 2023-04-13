@@ -30,10 +30,14 @@
         </div>
         <div class="container">
             <?php
-            $textoActualizar = $_POST['txtInputArea'];
-            $handler = fopen("nuevo.txt", "w+");
+            if ($_POST['txtInputArea'] == "  ") {
+                # code...
+            } else {
+                $textoActualizar = $_POST['txtInputArea'];
+                $handler = fopen("nuevo.txt", "w+");
 
-            $archivo = 'nuevo.txt';
+                $archivo = 'nuevo.txt';
+            }
 
             fwrite($handler, $textoActualizar);
 
